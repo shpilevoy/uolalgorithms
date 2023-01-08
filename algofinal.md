@@ -4,8 +4,8 @@ Algorithms and Data Structure I
 
 ## Task 1: MakeVector
 
-This function should take a four-element vector called row as an input parameter and return a vector of four elements
-called puzzle: each element of puzzle should contain the four-element vector row. Complete this function.
+![image](https://user-images.githubusercontent.com/6631578/211193838-c2961337-3f92-475d-9d90-ef9db7164262.png)
+
 
 ```
 function MakeVector(row)
@@ -23,9 +23,7 @@ end function
 
 ## Task 2: PermuteVector
 
-This function should take a four-element vector called row as an input parameter and return that vector but with
-its values cyclically permuted by p elements to the left: p should be a number between 0 and 3 (inclusive). To be
-able to get full marks you need to use the queue abstract data structure appropriately as outlined above.
+![image](https://user-images.githubusercontent.com/6631578/211193862-9c273130-27b6-4475-9931-76bfda867272.png)
 
 ```
 function PermuteVector(row, p)
@@ -54,10 +52,8 @@ end function
 
 ## Task 3: PermuteRows
 
-This function should take a four-element vector called puzzle, which will be of the form of the output of MakeVector as an input parameter, as well as three integers x, y and z. The function will return puzzle but with elements
-puzzle[1], puzzle[2] and puzzle[3] cyclically permuted by x, y and z elements respectively to the left: x, y and
-z should all be numbers between 0 and 3 (inclusive). To be able to get full marks you should call the function
-PermuteVector appropriately. HINT: You do not need to loop over integers x, y and z.
+![image](https://user-images.githubusercontent.com/6631578/211193874-c0221303-82a3-4835-a9d4-1a2b75a69996.png)
+
 
 ```
 function PermuteRows(puzzle, x, y, z)
@@ -72,8 +68,8 @@ P.S. I would use a loop if the arena size is big enough to avoid code repeating.
 
 ## Task 4: SearchStack
 
-This function will take a stack and a value (called item) as input parameters, and return FALSE if item is not stored
-in the stack, otherwise return the stack without the element storing item.
+![image](https://user-images.githubusercontent.com/6631578/211193897-43c0df1e-0cc0-42e6-94e3-5cd0d9220dc4.png)
+
 
 ```
 function SearchStack(stack, item)
@@ -104,10 +100,7 @@ So, i need to read whole stack and copy it to a new one without the target eleme
 
 ## Task 5: CheckColumn
 
-This function will take the vector puzzle (as produced by MakeVector) as an input parameter and check that
-column j contains all numbers from 1 to 4: if it does contain all numbers from 1 to 4, it should return TRUE,
-otherwise it should return FALSE. The procedure you should use is the one outlined above. To get full marks you
-need to call SearchStack(stack, item).
+![image](https://user-images.githubusercontent.com/6631578/211193902-a60aa267-dbfa-4eae-9e86-b5a2aef654bd.png)
 
 ```
 function CheckColumn(puzzle, j)
@@ -134,11 +127,7 @@ At the end we check if stack is empty to check all items are used and just make 
 
 ## Task 6: CheckGrids
 
-This function will take the vector puzzle (as produced by MakeVector) as an input parameter and check that all
-sub-grids contain all numbers from 1 to 4: if every sub-grid does contain all numbers from 1 to 4, it should return
-TRUE, otherwise it should return FALSE. For each sub-grid you should create a stack with numbers from 1 to 4,
-and then repeatedly search the stack to see if the values in the sub-grid are stored there. To get full marks you need
-to call SearchStack(stack, item).
+![image](https://user-images.githubusercontent.com/6631578/211193912-20e10fa0-d431-483f-8649-263f5bced499.png)
 
 ```
 function CheckGrids(puzzle)
@@ -172,11 +161,7 @@ Here i used `i` and `j` loops to avoid code duplication for every grid. Probably
 
 ## Task 7: Consider the following puzzle vector
 
->> Design and explain a concrete data structure that implements this puzzle vector. The data structure must only
-consist of elements that can store an integer or a pointer to another element or null - elements can be indexed if they
-are contiguous in memory as with an array. You can draw the data structure and explain how the allowed operations
-of vectors are implemented on this concrete data structure - additional pointers can be created to traverse lists.
-One approach could be to use arrays, or linked lists, or another approach completely.
+![image](https://user-images.githubusercontent.com/6631578/211193928-3e7ce466-95a9-4cfe-9850-6927fc62e1a3.png)
 
 In my implementation `puzzle` is a two-dimensional array of integers. It is very simple and provides fast constant access
 to any element in the puzzle. In the more developed application I would use objects instead of integers, because
@@ -189,11 +174,7 @@ items between head/tail and target item)
 
 ## Task 8: MakeSolution
 
-This function will take the four-element vector row as input, which is the same input for the function MakeVector. The function should return a solved Pseudoku puzzle such that all column and sub-grid Pseudoku conditions
-are satisfied. The function will generate a vector using MakeVector(row), then try cyclic permutations on this
-vector using PermuteRow(puzzle, x, y, z) until a set of permutations is found such that all Pseudoku conditions
-are satisfied (checked using CheckGrids and ColCheck). To be able to get full marks you should call the
-functions MakeVector, PermuteRow, CheckGrids and ColCheck.
+![image](https://user-images.githubusercontent.com/6631578/211193953-0ac9a408-6d57-442c-95d4-ba514ec4ea61.png)
 
 ```
 function MakeSolution(row)
@@ -220,10 +201,7 @@ Just get all possible combinations of `x`, `y`, `z` and use `PermuteRows` with i
 
 ## Task 9
 
->> Describe a method for setting values to be blank characters in the elements of the output of MakeSolution. 
-You can describe the method in words, use pseudocode, or use a flowchart. The method should take
-the number n as an input parameter and set n values to be blank characters. You do not need to go into great
-detail as long as the method makes sense. Maximum word count for the whole task (excluding diagrams): 200 words.
+![image](https://user-images.githubusercontent.com/6631578/211193977-94c3a581-0300-4df1-90b2-b939de0a90f9.png)
 
 As i explain in the Task 7, after some development i expect to change puzzle from two-dimensional array of integers to two-dimensional array of objects (or associative arrays).
 
@@ -233,12 +211,7 @@ Because we need to store some extra data, for example if the cell number is crea
 
 ## Task 10: Analysing the algorithm
 
->> In the next task, the goal is to analyse the algorithm in this assignment. The algorithm to generate Pseudoku
-puzzles outlined here might not produce all possibly valid Pseudoku puzzles. Remember that, generally speaking,
-the algorithm works by cyclically permuting several rows of a vector until the Pseudoku conditions are satisfied. In
-the next task you should aim to identify all of the weaknesses you can think of in this algorithm.
-Task 10: Describe and very briefly explain the limitations of the algorithm in this assignment. Maximum word
-count for the whole task: 400 words (excluding figures).
+![image](https://user-images.githubusercontent.com/6631578/211193988-13f8f140-f4c5-4f68-8974-cc292887b7ec.png)
 
 #### 1. Missing cases
 
